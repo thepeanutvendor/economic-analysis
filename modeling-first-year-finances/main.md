@@ -1777,7 +1777,7 @@ We can see that, among the residence options available to me, New College is mos
 
 ## Weighted Comparison
 
-A weighted comparison using other categories too. Categories and my weightings:
+A weighted comparison using other categories too. I had the residences ranked in each category using three LLMS: Claude 4.6, GPT-5.3, and Deepseek. Categories and my weightings:
 
 1. Cost - 0.05 (low-weighted because of marginal differences between the specific residences picked)
 2. Room Quality & Amenities - 0.5
@@ -1788,6 +1788,78 @@ A weighted comparison using other categories too. Categories and my weightings:
 
 ```python
 residence_rankings = {'Woodsworth': [2, 1, 3, 1, 3], 'Knox': [3, 4, 4, 3, 4], 'UC': [4, 3, 1, 4, 1], 'New College': [1, 2, 2, 2, 2]} # in order specified above
+pd.DataFrame.from_dict(data=residence_rankings, orient='index', columns=['Cost', 'Room & Amenities', 'Community', 'Food', 'Location'])
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cost</th>
+      <th>Room &amp; Amenities</th>
+      <th>Community</th>
+      <th>Food</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Woodsworth</th>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Knox</th>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>UC</th>
+      <td>4</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>New College</th>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
 weightings = [0.05, 0.5, 0.2, 0.2, 0.05]
 weighted_rankings = {}
 
